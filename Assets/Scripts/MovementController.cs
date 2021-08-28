@@ -7,6 +7,9 @@ public class MovementController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 direction;
 
+    public int basehealth = 3;
+
+
     public float movementSpeed = 10;
     public bool allowReflect = true;
     private bool allowMove = true;
