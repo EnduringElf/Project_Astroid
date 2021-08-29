@@ -17,14 +17,28 @@ public class MovementController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         direction = transform.forward;
+
+
+        StartCoroutine(TestCoroutine());
     }
 
 
     void FixedUpdate()
     {
+        
         if (allowMove)
         {
-            rb.velocity = transform.forward * movementSpeed;
+            //rb.velocity = transform.forward * movementSpeed;
+
+            float changeSpeed = movementSpeed - rb.velocity.magnitude;
+            Vector3 changeVelocity = changeSpeed * rb.transform.forward;
+            rb.velocity += changeVelocity;
+
+            Quaternion rotation = Quaternion.LookRotation(rb.velocity);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+
+            Debug.Log(rb.velocity.magnitude);
+
         }
         else
         {
@@ -37,16 +51,67 @@ public class MovementController : MonoBehaviour
         allowMove = newAllowMove;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+        //if (allowReflect)
+        //{
+        //    RaycastHit hit;
+        //    if (Physics.Raycast(transform.position, collision.contacts[0].point, out hit))
+        //    {
+        //        Debug.Log("Point of contact: " + hit.point);
+        //        direction = Vector3.Reflect(transform.forward, hit.normal);
+
+        //        //direction = transform.forward * -1;
+
+        //        Quaternion rotation = Quaternion.LookRotation(direction);
+        //        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+        //    }
+        //}
+
+        //if (allowReflect)
+        //{
+        //    direction = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
+
+        //    Quaternion rotation = Quaternion.LookRotation(direction);
+        //    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+
+        //}
+
+        //Destroy(gameObject);
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (allowReflect)
+    //    {
+    //        RaycastHit hit;
+    //        if (Physics.Raycast(transform.position, other.transform.position, out hit))
+    //        {
+    //            Debug.Log("Point of contact: " + hit.point);
+    //            direction = Vector3.Reflect(transform.forward, hit.normal);
+
+    //            Quaternion rotation = Quaternion.LookRotation(direction);
+    //            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+    //        }
+    //    }
+
+    //}
+
+
+    IEnumerator TestCoroutine()
     {
-        if (allowReflect)
-        {
-            direction = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
+        yield return new WaitForSeconds(5);
 
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+        movementSpeed = 20;
 
-            Debug.Log(collision.contacts[0].normal);
-        }
+        yield return new WaitForSeconds(5);
+
+        movementSpeed = 5;
+
+        yield return new WaitForSeconds(5);
+
+        movementSpeed = 30;
+
     }
+
 }
