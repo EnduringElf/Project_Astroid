@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
 
-        Resource = 10;
-        StartCoroutine(IncreaseResources());
+        //Resource = 10;
+        //StartCoroutine(IncreaseResourcesTimer());
     }
 
 
@@ -77,12 +77,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator IncreaseResources()
-    {
-        yield return new WaitForSeconds(1);
+    //public void IncreaseResources(int change)
+    //{
+    //    Resource += change;
+    //}
 
-        Resource += 1;
+    //IEnumerator IncreaseResourcesTimer()
+    //{
+    //    yield return new WaitForSeconds(1);
 
-        StartCoroutine(IncreaseResources());
-    }
+    //    IncreaseResources(1);
+
+    //    StartCoroutine(IncreaseResourcesTimer());
+    //}
 }

@@ -37,7 +37,7 @@ public class MovementController : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(rb.velocity);
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
 
-            Debug.Log(rb.velocity.magnitude);
+            //Debug.Log(rb.velocity.magnitude);
 
         }
         else
