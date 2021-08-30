@@ -19,7 +19,7 @@ public class MovementController : MonoBehaviour
         direction = transform.forward;
 
 
-        StartCoroutine(TestCoroutine());
+        //StartCoroutine(TestCoroutine());
     }
 
 
