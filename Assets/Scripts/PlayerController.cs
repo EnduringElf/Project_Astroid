@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         set 
         { 
             resource = value;
-            Debug.Log($"Resource: {resource}");
+            //Debug.Log($"Resource: {resource}");
         }
     }
 
@@ -66,11 +66,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if(BuildZoneSelected != null)
             {
-                BuildZoneSelected.GetComponent<BuildZoneController>().PlaceBuildingOnZone(1);
+                BuildZoneSelected.GetComponent<BuildZoneController>().PlaceStructureOnZone(3);
             }
 
             //Destroy(BuildZoneSelected);

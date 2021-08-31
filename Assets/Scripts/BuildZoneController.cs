@@ -8,7 +8,7 @@ public class BuildZoneController : MonoBehaviour
 
     private bool available = true;
 
-    public GameObject[] buildingOptions;
+    public GameObject[] structureOptions;
 
     // Start is called before the first frame update
     void Start()
@@ -34,19 +34,20 @@ public class BuildZoneController : MonoBehaviour
         player.BuildZoneSelected = null;
     }
 
-    public void PlaceBuildingOnZone(int buildingNum)
+    public void PlaceStructureOnZone(int structureNum)
     {
         if(available == true)
         {
-            Instantiate(buildingOptions[buildingNum - 1], gameObject.transform.position, gameObject.transform.rotation);
 
-            //gameObject.transform.position += new Vector3(0f, 10f, 0f);
+            GameObject placedStructure = (GameObject)Instantiate(structureOptions[structureNum - 1], gameObject.transform.position, gameObject.transform.rotation);
+            placedStructure.GetComponent<StructureController>().BuildZone = gameObject.GetComponent<BuildZoneController>();
+
             available = false;
         }
 
     }
 
-    public void BuildingDestroyedOnZone()
+    public void StructureDestroyedOnZone()
     {
         available = true;
     }
