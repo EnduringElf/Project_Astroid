@@ -554,3 +554,34 @@ Received Import Request.
 Start importing Assets/Models/main_building.fbx using Guid(399ac1219f604c44e87652d7fceb996c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f93e4c310c123a76c3c5178c618c0cb') in 0.344241 seconds
   Import took 0.347711 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001991 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.091 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1112 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 61.0 MB.
+System memory in use after: 61.1 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1631.
+Total: 1.644500 ms (FindLiveObjects: 0.161700 ms CreateObjectMapping: 0.046600 ms MarkObjects: 1.417500 ms  DeleteObjects: 0.017500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 143.898194 seconds.
+  path: Assets/Scripts/Asteroid Scripts
+  artifactKey: Guid(2a485662427fbf4409ce4de0661290b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Asteroid Scripts using Guid(2a485662427fbf4409ce4de0661290b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5502b6fddd72e1097a3ccc57b1767f92') in 0.008442 seconds
+  Import took 0.012203 seconds .
+
