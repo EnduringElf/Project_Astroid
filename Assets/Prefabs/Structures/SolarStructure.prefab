@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2308274573818699856}
   - component: {fileID: 3033340580118437148}
   - component: {fileID: 1052626238186469887}
+  - component: {fileID: 2216711510701375928}
   - component: {fileID: 9067866693374541075}
   m_Layer: 0
   m_Name: SolarStructure
@@ -30,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2308274573818699857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -126,6 +127,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2994673032853641a73ef761f250750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2216711510701375928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308274573818699857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cac6ff76169cb46960257580f11926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!114 &9067866693374541075
 MonoBehaviour:
   m_ObjectHideFlags: 0

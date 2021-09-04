@@ -8,7 +8,7 @@ public class MovementController : MonoBehaviour
     private Vector3 direction;
 
     public float movementSpeed = 10;
-    public bool allowReflect = true;
+    public float minMovementSpeed = 1;
     private bool allowMove = true;
 
 
@@ -23,6 +23,7 @@ public class MovementController : MonoBehaviour
     }
 
 
+
     void FixedUpdate()
     {
         
@@ -34,8 +35,8 @@ public class MovementController : MonoBehaviour
             Vector3 changeVelocity = changeSpeed * rb.transform.forward;
             rb.velocity += changeVelocity;
 
-            Quaternion rotation = Quaternion.LookRotation(rb.velocity);
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+            //Quaternion rotation = Quaternion.LookRotation(rb.velocity);
+            //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
 
             //Debug.Log(rb.velocity.magnitude);
 
@@ -46,9 +47,25 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        Quaternion rotation = Quaternion.LookRotation(rb.velocity);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+    }
+
     public void UpdateAllowMove(bool newAllowMove)
     {
         allowMove = newAllowMove;
+    }
+
+    public void UpdateMovementSpeed(float newSpeed)
+    {
+        movementSpeed = newSpeed;
+
+        if(movementSpeed < minMovementSpeed)
+        {
+            movementSpeed = minMovementSpeed;
+        }
     }
 
     //private void OnCollisionEnter(Collision collision)
