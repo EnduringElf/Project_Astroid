@@ -16,7 +16,7 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        direction = transform.forward;
+        //direction = transform.forward;
 
 
         //StartCoroutine(TestCoroutine());
@@ -49,8 +49,12 @@ public class MovementController : MonoBehaviour
 
     private void LateUpdate()
     {
-        Quaternion rotation = Quaternion.LookRotation(rb.velocity);
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+        if(rb.velocity.magnitude != 0)
+        {
+            Quaternion rotation = Quaternion.LookRotation(rb.velocity);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, rotation.eulerAngles.y, transform.rotation.eulerAngles.x);
+        }
+
     }
 
     public void UpdateAllowMove(bool newAllowMove)

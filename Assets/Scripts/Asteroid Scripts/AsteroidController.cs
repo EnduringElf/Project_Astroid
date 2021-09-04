@@ -6,9 +6,16 @@ public class AsteroidController : MonoBehaviour
 {
     HealthController healthController;
 
+    Rigidbody rb;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        //rb = GetComponent<Rigidbody>();
+        ////rotate asteroid to move towards the centre of the screen when spawned
+        //rb.transform.LookAt(Vector3.zero);
+
         healthController = GetComponent<HealthController>();
     }
 

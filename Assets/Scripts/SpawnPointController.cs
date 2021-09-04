@@ -11,6 +11,8 @@ public class SpawnPointController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.transform.LookAt(Vector3.zero);
+
         MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
         mr.enabled = false;
     }
