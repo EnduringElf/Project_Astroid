@@ -4,51 +4,147 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int numAsteroidsSpawned = 0;
-    private float timeUntilNextAsteroid = 10;
+    //private int numAsteroidsSpawned = 0;
+    //private float timeUntilNextAsteroid = 10;
+
+    private int waveNum = 0;
 
     LevelManager levelManager;
+
+    private PlayerController player;
+
+    private int researchGoal = 100;
 
     // Start is called before the first frame update
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        player = FindObjectOfType<PlayerController>();
 
-        //initial spawning of asteroids
-        StartCoroutine(IntialAsteroidSpawnTimer(3, 1f));
+
+        StartCoroutine(InitialGameStartDelay(3f));
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(player.Research >= researchGoal)
+        {
+            Debug.Log("<<< GAME WIN!!! >>>");
+        }
     }
 
-    IEnumerator IntialAsteroidSpawnTimer(int initialNumAsteroidsSpawn, float timeBetweenSpawns)
+    IEnumerator InitialGameStartDelay(float time)
     {
-        for(int i = 1; i < initialNumAsteroidsSpawn; i++)
-        {
-            yield return new WaitForSeconds(timeBetweenSpawns);
+        yield return new WaitForSeconds(time);
 
-            SpawnAsteroid();
+        StartAsteroidWave();
+
+        Debug.Log("GAME START!");
+    }
+
+
+    public void StartAsteroidWave()
+    {
+        GameObject[] asteroidsToSpawn = SetUpWaves(levelManager.waves[waveNum]);
+        float timeUntilNextWave = levelManager.waves[waveNum].delayAfterWave;
+
+        StartCoroutine(SpawnAsteroidsInWave(asteroidsToSpawn, timeUntilNextWave));
+    }
+
+    IEnumerator SpawnAsteroidsInWave(GameObject[] asteroidsToSpawn, float timeUntilNextWave)
+    {
+        for(int i = 0; i < asteroidsToSpawn.Length; i++)
+        {
+            levelManager.SpawnAsteroid(asteroidsToSpawn[i]);
+
+            //add a delay only if an asteroid will spawn next iteration
+            if (i < (asteroidsToSpawn.Length - 1))
+            {
+                yield return new WaitForSeconds(Random.Range(2, 4));
+            }
         }
 
 
-        //start main asteroid spawning timer
-        StartCoroutine(SpawnNextAsteroidTimer());
+        yield return new WaitForSeconds(timeUntilNextWave);
+
+        waveNum++;
+
+        if(waveNum > (levelManager.waves.Length - 1))
+        {
+            waveNum--;
+        }
+
+        StartAsteroidWave();
     }
 
-    IEnumerator SpawnNextAsteroidTimer()
+
+    public GameObject[] SetUpWaves(WaveSlot wave)
     {
-        yield return new WaitForSeconds(timeUntilNextAsteroid);
+        GameObject[] asteroids = new GameObject[wave.numDefaultAsteroids + wave.specialAsteroids.Length];
 
-        SpawnAsteroid();
+        //adds default asteroids
+        for(int i = 0; i < wave.numDefaultAsteroids; i++)
+        {
+            asteroids[i] = levelManager.defaultAsteroid;
+            //Debug.Log($"Default: {asteroids[i]}");
+        }
 
-        StartCoroutine(SpawnNextAsteroidTimer());
+        int counter = 0;
+
+        //adds special asteroids
+        for (int i = wave.numDefaultAsteroids; i < asteroids.Length; i++)
+        {
+            asteroids[i] = wave.specialAsteroids[counter];
+            counter++;
+
+            //Debug.Log($"Special: {asteroids[i]}");
+        }
+
+
+        //shuffle asteroids array
+        for (int i = 0; i < asteroids.Length - 1; i++)
+        {
+            int rnd = Random.Range(i, asteroids.Length);
+            GameObject tempAsteroid = asteroids[rnd];
+            asteroids[rnd] = asteroids[i];
+            asteroids[i] = tempAsteroid;
+        }
+
+        //for (int i = 0; i < asteroids.Length; i++)
+        //{
+        //    Debug.Log(asteroids[i]);
+        //}
+
+        return asteroids;
     }
 
-    private void SpawnAsteroid()
-    {
-        levelManager.SpawnAsteroid();
-    }
+
+
+
+    //IEnumerator IntialAsteroidSpawnTimer(int initialNumAsteroidsSpawn, float timeBetweenSpawns)
+    //{
+    //    for(int i = 1; i < initialNumAsteroidsSpawn; i++)
+    //    {
+    //        yield return new WaitForSeconds(timeBetweenSpawns);
+
+    //        //SpawnAsteroid();
+    //    }
+
+
+    //    //start main asteroid spawning timer
+    //    StartCoroutine(SpawnNextAsteroidTimer());
+    //}
+
+    //IEnumerator SpawnNextAsteroidTimer()
+    //{
+    //    yield return new WaitForSeconds(timeUntilNextAsteroid);
+
+    //    SpawnAsteroid();
+
+
+
+    //    StartCoroutine(SpawnNextAsteroidTimer());
+    //}
+
 }

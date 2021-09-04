@@ -6,6 +6,8 @@ public class StructureController : MonoBehaviour
 {
     HealthController healthController;
 
+    public int resourceCost = 10;
+
     public BuildZoneController BuildZone { get; set; }
 
 

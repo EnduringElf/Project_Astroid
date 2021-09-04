@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     private Camera mainCamera;
+    private GameHUDController gameHUD;
 
     private int resource;
-
     public int Resource
     {
         get 
@@ -18,9 +18,26 @@ public class PlayerController : MonoBehaviour
         set 
         { 
             resource = value;
+            gameHUD.SetResourceText(resource);
             //Debug.Log($"Resource: {resource}");
         }
     }
+
+    private int research;
+    public int Research
+    {
+        get
+        {
+            return research;
+        }
+        set
+        {
+            research = value;
+            gameHUD.SetResearchText(research);
+            //Debug.Log($"Research: {research}");
+        }
+    }
+
 
     public GameObject BuildZoneSelected { get; set; }   
 
@@ -30,6 +47,10 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
+        gameHUD = FindObjectOfType<Canvas>().GetComponent<GameHUDController>();
+
+        gameHUD.SetResourceText(resource);
+        gameHUD.SetResearchText(research);
 
         //Resource = 10;
         //StartCoroutine(IncreaseResourcesTimer());
@@ -48,6 +69,7 @@ public class PlayerController : MonoBehaviour
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
 
             rb.transform.LookAt(pointToLook);
+            rb.transform.rotation = Quaternion.Euler(0f, rb.transform.rotation.eulerAngles.y, 0f);
 
             //Debug.DrawRay(Input.mousePosition + new Vector3(0f, 100f, 0f), -Vector3.up, Color.green, 2, false);
 
@@ -57,11 +79,11 @@ public class PlayerController : MonoBehaviour
         //rb.angularVelocity = new Vector3(0, 3, 0);
         //rb.AddTorque(new Vector3(0f, 200f, 0f));
 
-        if(BuildZoneSelected != null)
-        {
-            Debug.Log(BuildZoneSelected.name);
+        //if(BuildZoneSelected != null)
+        //{
+        //    Debug.Log(BuildZoneSelected.name);
 
-        }
+        //}
     }
 
     void Update()
@@ -70,10 +92,29 @@ public class PlayerController : MonoBehaviour
         {
             if(BuildZoneSelected != null)
             {
+                BuildZoneSelected.GetComponent<BuildZoneController>().PlaceStructureOnZone(1);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (BuildZoneSelected != null)
+            {
+                BuildZoneSelected.GetComponent<BuildZoneController>().PlaceStructureOnZone(2);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (BuildZoneSelected != null)
+            {
                 BuildZoneSelected.GetComponent<BuildZoneController>().PlaceStructureOnZone(3);
             }
-
-            //Destroy(BuildZoneSelected);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (BuildZoneSelected != null)
+            {
+                BuildZoneSelected.GetComponent<BuildZoneController>().PlaceStructureOnZone(4);
+            }
         }
     }
 

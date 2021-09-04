@@ -108,3 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2b1eaf5534ac449bcd5cc45d7ddff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultAsteroid: {fileID: 0}
+  specialAsteroids:
+  - {fileID: 6067262528048041100, guid: a6e65ca82e6ded8498a73eeb5cab48d5, type: 3}

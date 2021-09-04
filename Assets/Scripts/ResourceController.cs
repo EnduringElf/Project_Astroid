@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResourceController : MonoBehaviour
 {
     public int resourceIncrease = 1;
+    public int increaseTime = 1;
     private PlayerController player;
 
     // Start is called before the first frame update
@@ -16,12 +17,6 @@ public class ResourceController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void IncreaseResources()
     {
         player.Resource += resourceIncrease;
@@ -31,7 +26,7 @@ public class ResourceController : MonoBehaviour
 
     IEnumerator IncreaseResourcesTimer()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(increaseTime);
 
         IncreaseResources();
 
