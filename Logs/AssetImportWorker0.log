@@ -183,3 +183,35 @@ System memory in use after: 56.7 MB.
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1553.
 Total: 2.150200 ms (FindLiveObjects: 0.247000 ms CreateObjectMapping: 0.053700 ms MarkObjects: 1.820600 ms  DeleteObjects: 0.026500 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 577.304863 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(062c037a22e751044a24622887af0af1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(062c037a22e751044a24622887af0af1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6aa5befd5bc6694cdc8f87bc9a436c6') in 0.006695 seconds
+  Import took 0.009243 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.060769 seconds.
+  path: Assets/Prefabs/AsteroidTest.prefab
+  artifactKey: Guid(a6e65ca82e6ded8498a73eeb5cab48d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/AsteroidTest.prefab using Guid(a6e65ca82e6ded8498a73eeb5cab48d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da0afe52e4cb3814008673251a7f0bba') in 0.109940 seconds
+  Import took 0.112353 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/Prefabs/SolarStructure.prefab
+  artifactKey: Guid(3135891ed9eeb3d4180d73182a072bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/SolarStructure.prefab using Guid(3135891ed9eeb3d4180d73182a072bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d2ccb6af69a97cb0d4101593302d639') in 0.010015 seconds
+  Import took 0.012088 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000301 seconds.
+  path: Assets/Prefabs/BuildZone.prefab
+  artifactKey: Guid(f6e4aef4f596fbb48ba11b45c1e0a0c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BuildZone.prefab using Guid(f6e4aef4f596fbb48ba11b45c1e0a0c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5b96bab1cc6b40f0fa7e434fa94f695') in 0.011394 seconds
+  Import took 0.013778 seconds .
+
