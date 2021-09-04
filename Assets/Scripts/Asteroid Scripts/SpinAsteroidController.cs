@@ -7,7 +7,7 @@ public class SpinAsteroidController : MonoBehaviour
     private Rigidbody rb;
 
     private int spinDirection = 1;
-    private float spinAngle = 20f;
+    public float spinAngle = 10f;
 
     // Start is called before the first frame update
     void Start()
