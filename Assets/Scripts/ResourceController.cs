@@ -25,7 +25,7 @@ public class ResourceController : MonoBehaviour
     public void IncreaseResources()
     {
         player.Resource += resourceIncrease;
-        Debug.Log($"{gameObject.name}: increased resources");
+        //Debug.Log($"{gameObject.name}: increased resources");
 
     }
 
