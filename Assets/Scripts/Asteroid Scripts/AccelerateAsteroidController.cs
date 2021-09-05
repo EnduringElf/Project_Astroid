@@ -34,12 +34,12 @@ public class AccelerateAsteroidController : MonoBehaviour
         if(movement.movementSpeed >= maxSpeed)
         {
             accelOrDecel = -1;
-            Debug.Log("DECELERATE");
+            //Debug.Log("DECELERATE");
         }
         if(movement.movementSpeed <= minSpeed)
         {
             accelOrDecel = 1;
-            Debug.Log("ACCELERATE");
+            //Debug.Log("ACCELERATE");
 
         }
     }
