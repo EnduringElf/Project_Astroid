@@ -23,7 +23,7 @@ public class SlowDownStructureController : MonoBehaviour
         if (other.gameObject.GetComponent<AsteroidController>() != null)
         {
             MovementController asteroidMovement = other.GetComponent<MovementController>();
-            asteroidMovement.UpdateMovementSpeed(asteroidMovement.movementSpeed/1.25f);
+            asteroidMovement.UpdateMovementSpeed(asteroidMovement.movementSpeed/1.2f);
         }
     }
 }

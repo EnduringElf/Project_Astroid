@@ -31,7 +31,7 @@ public class MainBaseController : MonoBehaviour
 
             if (healthController.health <= 0)
             {
-                Debug.LogError("GAME OVER");
+                //Debug.LogError("GAME OVER");
                 Destroy(gameObject);
             }
         }

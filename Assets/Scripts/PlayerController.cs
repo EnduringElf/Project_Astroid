@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         gameHUD.SetResourceText(resource);
         gameHUD.SetResearchText(research);
 
-        //Resource = 10;
+        Resource = 10;
         //StartCoroutine(IncreaseResourcesTimer());
     }
 

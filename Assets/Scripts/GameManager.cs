@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerController player;
 
-    private int researchGoal = 100;
+    private int researchGoal = 250;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if(player.Research >= researchGoal)
         {
-            Debug.Log("<<< GAME WIN!!! >>>");
+            //Debug.Log("<<< GAME WIN!!! >>>");
         }
     }
 
@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     public void StartAsteroidWave()
     {
+        Debug.Log($"CURRENT WAVE: {waveNum}");
+
         GameObject[] asteroidsToSpawn = SetUpWaves(levelManager.waves[waveNum]);
         float timeUntilNextWave = levelManager.waves[waveNum].delayAfterWave;
 
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
             //add a delay only if an asteroid will spawn next iteration
             if (i < (asteroidsToSpawn.Length - 1))
             {
-                yield return new WaitForSeconds(Random.Range(2, 4));
+                yield return new WaitForSeconds(Random.Range(2, 3f));
             }
         }
 

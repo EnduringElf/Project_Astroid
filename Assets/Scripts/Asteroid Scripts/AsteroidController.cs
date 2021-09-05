@@ -28,7 +28,7 @@ public class AsteroidController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         healthController.health--;
-        Debug.Log($"{gameObject.name} HP: {healthController.health}");
+        //Debug.Log($"{gameObject.name} HP: {healthController.health}");
 
         if (healthController.health <= 0)
         {

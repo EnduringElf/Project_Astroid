@@ -22,7 +22,7 @@ public class StructureController : MonoBehaviour
         if(collision.gameObject.GetComponent<AsteroidController>() != null)
         {
             healthController.health--;
-            Debug.Log($"{gameObject.name} HP: {healthController.health}");
+            //Debug.Log($"{gameObject.name} HP: {healthController.health}");
 
             if (healthController.health <= 0)
             {
@@ -38,7 +38,7 @@ public class StructureController : MonoBehaviour
         if (other.gameObject.GetComponent<AsteroidController>() != null)
         {
             healthController.health--;
-            Debug.Log($"{gameObject.name} HP: {healthController.health}");
+            //Debug.Log($"{gameObject.name} HP: {healthController.health}");
 
             if (healthController.health <= 0)
             {
