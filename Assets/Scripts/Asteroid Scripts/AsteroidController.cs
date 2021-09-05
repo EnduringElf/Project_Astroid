@@ -17,6 +17,8 @@ public class AsteroidController : MonoBehaviour
         //rb.transform.LookAt(Vector3.zero);
 
         healthController = GetComponent<HealthController>();
+
+        
     }
 
     // Update is called once per frame
@@ -34,6 +36,13 @@ public class AsteroidController : MonoBehaviour
         {
             DestroyAsteroid();
         }
+        if(collision.gameObject.tag == "Player")
+        {
+            FindObjectOfType<Audio_manager>().PlayAstroidSFX
+                ("hit", this.gameObject.transform.position.x, this.gameObject.transform.position.z);
+        }
+        
+
     }
 
     public void DestroyAsteroid()
