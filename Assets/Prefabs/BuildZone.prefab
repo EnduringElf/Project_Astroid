@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureOptions:
   - {fileID: 2308274573818699857, guid: 3135891ed9eeb3d4180d73182a072bc5, type: 3}
-  - {fileID: 2308274573818699857, guid: e23b7fc35cb72ab4181b612a1937c704, type: 3}
+  - {fileID: 2308274573818699857, guid: 526c4f63063b6fa4db558b5bc13a065d, type: 3}
   - {fileID: 2308274573818699857, guid: 64cbd3c7aefddb34a84fcfe547dd808e, type: 3}
-  - {fileID: 2308274573818699857, guid: f82f8d340f8a0634dbd652531f393560, type: 3}
+  - {fileID: 2308274573818699857, guid: 5e7827e7564edb2408299293ef43c4df, type: 3}
   selectedMaterial: {fileID: 2100000, guid: fea216bfff3e86e4ba162a9c85547147, type: 2}

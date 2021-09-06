@@ -15,7 +15,7 @@ public class SpinAsteroidController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         rb.transform.eulerAngles = new Vector3(0f, rb.transform.eulerAngles.y + (spinAngle * spinDirection), 0f);
         rb.velocity += rb.transform.forward;

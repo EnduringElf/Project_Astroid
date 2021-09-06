@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         gameHUD.SetResearchText(research);
 
         Resource = 10;
+
         //StartCoroutine(IncreaseResourcesTimer());
     }
 
@@ -117,18 +118,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    //public void IncreaseResources(int change)
-    //{
-    //    Resource += change;
-    //}
-
-    //IEnumerator IncreaseResourcesTimer()
-    //{
-    //    yield return new WaitForSeconds(1);
-
-    //    IncreaseResources(1);
-
-    //    StartCoroutine(IncreaseResourcesTimer());
-    //}
 }

@@ -264,4 +264,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af24ea37d1c88b49ad1c467ec22996b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinAngle: 10
+  spinAngle: 50

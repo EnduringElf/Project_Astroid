@@ -14,7 +14,7 @@ public class StructureController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthController = GetComponent<HealthController>();
+        healthController = gameObject.GetComponent<HealthController>();
     }
 
     private void OnCollisionEnter(Collision collision)
